@@ -6,8 +6,10 @@ https://doi.org/10.1257/aer.20160696. **Version read and pinned:** the NBER
 working paper 22252 **as revised in June 2017** (87 pp., SHA-256
 `441d0120…16b7`), which is the course PDF; it carries the earlier title *The
 Race Between Machine and Man*. Page numbers below are the PDF's (printed page
-= PDF page − 2). The AER version was not read. `paper/README.md` has the
-pointers.
+= PDF page − 2). The author's ChatGPT study session (Session 1 of
+`prompts.md`) worked from the AER pagination (pp. 1493–1498); the equations
+and propositions cited there carry the same numbers. `paper/README.md` has
+the pointers.
 
 > **Tools, stated up front.** The Lean folder, the numerics, the deck and the
 > file structure were produced with **Claude Code (Claude Fable 5.1)** in the
