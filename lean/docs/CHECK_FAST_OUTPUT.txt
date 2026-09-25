@@ -1,0 +1,15 @@
+$ lake build AR18RaceManMachine
+✔ [3308/3313] Built AR18RaceManMachine.MainTheorems (21s)
+✔ [3309/3313] Built AR18RaceManMachine.Assumptions (7.2s)
+✔ [3310/3313] Built AR18RaceManMachine.PaperInterface (2.4s)
+✔ [3311/3313] Built AR18RaceManMachine.ProofInterface (3.2s)
+✔ [3312/3313] Built AR18RaceManMachine (2.5s)
+Build completed successfully (3313 jobs).
+exit code 0
+
+$ python3 scripts/paper_contribution.py check AR18RaceManMachine --fast
+Build completed successfully (3310 jobs).
++ git diff --check -- papers/AR18RaceManMachine papers/AR18RaceManMachine.lean lakefile.toml ':(exclude)papers/AR18RaceManMachine/source/'
+exit code 0
+
+Note: MainTheorems.lean imports Mathlib.Tactic, Mathlib.Data.Real.Basic and Mathlib.Analysis.SpecialFunctions.Pow.Deriv instead of the scaffold's `import Mathlib`; the statement-spec validation of `new` ran under the same three imports because AppliedModelingLib.olean was not built on this machine (see docs/RUN_LOG.md).

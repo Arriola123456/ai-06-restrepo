@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "paper": "AR18RaceManMachine",
+  "namespace": "AR18RaceManMachine",
+  "paper_interface_module": "",
+  "semantic_route_schema": 2,
+  "closeout_review_policy": {
+    "schema": 1,
+    "source_scope": "all_named_theory",
+    "repeat_final_scope": "main_primary",
+    "required_final_adversary_count": 1,
+    "scheduling": {
+      "initial_semantic_review": [],
+      "final_adversarial_review": []
+    }
+  },
+  "source_version": "NBER Working Paper 22252, revised June 2017 (published as AER 108(6), 2018, 1488-1542)",
+  "include_specs": [
+    "paper_cost_thresholdSpec",
+    "paper_equilibrium_thresholdSpec",
+    "paper_prop2_lambda_positiveSpec",
+    "paper_prop2_signs_constrainedSpec",
+    "paper_prop2_sigma_freeSpec",
+    "paper_prop3_productivity_effect_positiveSpec",
+    "paper_prop3_rental_rate_risesSpec",
+    "paper_prop3_wage_decompositionSpec",
+    "paper_prop3_new_tasks_raise_wageSpec",
+    "paper_corollary_1_cobb_douglas_sharesSpec"
+  ],
+  "source_item_for_spec": {
+    "paper_cost_thresholdSpec": "paper_cost_threshold",
+    "paper_equilibrium_thresholdSpec": "paper_equilibrium_threshold",
+    "paper_prop2_lambda_positiveSpec": "paper_prop2_lambda_positive",
+    "paper_prop2_signs_constrainedSpec": "paper_prop2_signs_constrained",
+    "paper_prop2_sigma_freeSpec": "paper_prop2_sigma_free",
+    "paper_prop3_productivity_effect_positiveSpec": "paper_prop3_productivity_effect_positive",
+    "paper_prop3_rental_rate_risesSpec": "paper_prop3_rental_rate_rises",
+    "paper_prop3_wage_decompositionSpec": "paper_prop3_wage_decomposition",
+    "paper_prop3_new_tasks_raise_wageSpec": "paper_prop3_new_tasks_raise_wage",
+    "paper_corollary_1_cobb_douglas_sharesSpec": "paper_corollary_1_cobb_douglas_shares"
+  },
+  "evidence_declaration_for_spec": {
+    "paper_cost_thresholdSpec": "AR18RaceManMachine.paper_cost_threshold",
+    "paper_equilibrium_thresholdSpec": "AR18RaceManMachine.paper_equilibrium_threshold",
+    "paper_prop2_lambda_positiveSpec": "AR18RaceManMachine.paper_prop2_lambda_positive",
+    "paper_prop2_signs_constrainedSpec": "AR18RaceManMachine.paper_prop2_signs_constrained",
+    "paper_prop2_sigma_freeSpec": "AR18RaceManMachine.paper_prop2_sigma_free",
+    "paper_prop3_productivity_effect_positiveSpec": "AR18RaceManMachine.paper_prop3_productivity_effect_positive",
+    "paper_prop3_rental_rate_risesSpec": "AR18RaceManMachine.paper_prop3_rental_rate_rises",
+    "paper_prop3_wage_decompositionSpec": "AR18RaceManMachine.paper_prop3_wage_decomposition",
+    "paper_prop3_new_tasks_raise_wageSpec": "AR18RaceManMachine.paper_prop3_new_tasks_raise_wage",
+    "paper_corollary_1_cobb_douglas_sharesSpec": "AR18RaceManMachine.paper_corollary_1_cobb_douglas_shares"
+  },
+  "source_semantic_declarations": {},
+  "paper_semantic_prerequisite_sources": {},
+  "library_semantic_prerequisite_sources": {},
+  "semantic_context_requirements": {},
+  "model_convention_ids_by_source_item": {},
+  "source_named_result_inventory_review": {
+    "complete": false,
+    "validator": "",
+    "method": "",
+    "validated_at": "",
+    "prose_definition_presentations": [],
+    "candidate_presentations": [],
+    "source_region_partition": {
+      "complete": false,
+      "validator": "",
+      "method": "",
+      "validated_at": "",
+      "regions": [],
+      "source_item_regions": {},
+      "candidate_presentation_regions": {},
+      "prose_definition_presentation_regions": {},
+      "promoted_source_items": []
+    }
+  }
+}

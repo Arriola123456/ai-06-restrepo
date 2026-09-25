@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "source_artifact_path": "paper.pdf",
+  "source_artifact_sha256": "441d01202afd56ef8002fc24ffc2beb51191741c0b5accb11d2534620dd616b7",
+  "source_version": "NBER Working Paper 22252, revised June 2017 (published as AER 108(6), 2018, 1488-1542)",
+  "targets": [
+    {
+      "source_item": "Equations (5)-(6): unit costs and the cost-minimising threshold Ĩ (Section 2.2)",
+      "source_kind": "claim",
+      "source_location": "Section 2.2, PDF page 10 (printed page 8): equation (5) p(i) = min{R, W/γ(i)}^(1-η) for i ≤ I, equation (6) W/R = γ(Ĩ), and the sentence 'For all tasks i < Ĩ, we have R < W/γ(i)'; Assumption 1 (γ strictly increasing) on PDF page 9",
+      "source_statement": "Because labor has a strict comparative advantage in tasks with a higher index, the expression for p(i) implies that there is a (unique) threshold Ĩ such that W/R = γ(Ĩ). This threshold represents the task for which the costs of producing with capital and labor are equal. For all tasks i < Ĩ, we have R < W/γ(i), and without any other constraints, these tasks will be produced with capital. [Assumption 1: γ(i) is strictly increasing.]",
+      "lean_name": "paper_cost_threshold",
+      "lean_type": "∀ (W R : ℝ) (γ : ℝ → ℝ) (i It : ℝ),\n  0 < W → 0 < R → StrictMono γ → (∀ x, 0 < γ x) → γ It = W / R →\n    (i < It → R < W / γ i) ∧ (It < i → W / γ i < R)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "The equilibrium threshold task I* = min{I, Ĩ} (Section 2.2)",
+      "source_kind": "claim",
+      "source_location": "Section 2.2, PDF page 10 (printed page 8): 'there exists a unique equilibrium threshold task I* = min{I, Ĩ} such that all tasks i < I* will be produced with capital, while all tasks i > I* will be produced with labor'",
+      "source_statement": "However, if Ĩ > I, firms cannot use capital all the way up to task Ĩ because of the constraint imposed by the available automation technology. This implies that there exists a unique equilibrium threshold task I* = min{I, Ĩ} such that all tasks i < I* will be produced with capital, while all tasks i > I* will be produced with labor.",
+      "lean_name": "paper_equilibrium_threshold",
+      "lean_type": "∀ I It i : ℝ,\n  (i < min I It ↔ i < I ∧ i < It) ∧ (min I It < i ↔ I < i ∨ It < i)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 2: the terms Λ_I and Λ_N are positive",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, PDF page 13 (printed page 11): definitions Λ_I = γ(I*)^(σ̂-1)/∫_{I*}^N γ(i)^(σ̂-1) di + 1/(I*-N+1) and Λ_N = γ(N)^(σ̂-1)/∫_{I*}^N γ(i)^(σ̂-1) di + 1/(I*-N+1); tasks run over [N-1, N] (PDF page 8), so I* - N + 1 > 0",
+      "source_statement": "Let ε_L > 0 denote the elasticity of the labor supply schedule L^s(ω); let ε_γ = d ln γ(I)/dI > 0 denote the semi-elasticity of the comparative advantage schedule; and let Λ_I = γ(I*)^(σ̂-1)/∫_{I*}^N γ(i)^(σ̂-1) di + 1/(I*-N+1) and Λ_N = γ(N)^(σ̂-1)/∫_{I*}^N γ(i)^(σ̂-1) di + 1/(I*-N+1). [Formalized with the integral as a positive real J: both terms are strictly positive.]",
+      "lean_name": "paper_prop2_lambda_positive",
+      "lean_type": "∀ (γI γN J Istar N σh : ℝ),\n  0 < γI → 0 < γN → 0 < J → N - 1 < Istar →\n    0 < γI ^ (σh - 1) / J + 1 / (Istar - N + 1) ∧\n    0 < γN ^ (σh - 1) / J + 1 / (Istar - N + 1)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 2 (technology-constrained case): signs of the comparative statics of W/R",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, PDF page 13 (printed page 11), first bullet: d ln(W/R)/dI = d ln ω/dI = -Λ_I/(σ̂+ε_L) < 0, d ln(W/R)/dN = Λ_N/(σ̂+ε_L) > 0, d ln(W/R)/d ln K = (1+ε_L)/(σ̂+ε_L) > 0",
+      "source_statement": "If I* = I < Ĩ — so that the allocation of tasks to factors is constrained by technology — then: the impact of technological change on relative factor prices is given by d ln(W/R)/dI = d ln ω/dI = -(1/(σ̂+ε_L)) Λ_I < 0, d ln(W/R)/dN = d ln ω/dN = (1/(σ̂+ε_L)) Λ_N > 0; and the impact of capital on relative factor prices is given by d ln(W/R)/d ln K = d ln ω/d ln K + 1 = (1+ε_L)/(σ̂+ε_L) > 0.",
+      "lean_name": "paper_prop2_signs_constrained",
+      "lean_type": "∀ σh εL ΛI ΛN : ℝ, 0 < σh → 0 < εL → 0 < ΛI → 0 < ΛN →\n  -(1 / (σh + εL)) * ΛI < 0 ∧ 0 < (1 / (σh + εL)) * ΛN ∧ 0 < (1 + εL) / (σh + εL)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 2 (cost-minimising case): σ_free = σ̂ + Λ_I/ε_γ > σ̂",
+      "source_kind": "proposition",
+      "source_location": "Proposition 2, PDF page 13 (printed page 11), second bullet: 'where σ_free = σ̂ + (1/ε_γ) Λ_I > σ̂'",
+      "source_statement": "If I* = Ĩ < I — so that the allocation of tasks to factors is cost-minimizing — then: d ln(W/R)/dI = d ln ω/dI = 0, d ln(W/R)/dN = d ln ω/dN = (1/(σ_free+ε_L)) Λ_N > 0, where σ_free = σ̂ + (1/ε_γ) Λ_I > σ̂.",
+      "lean_name": "paper_prop2_sigma_free",
+      "lean_type": "∀ σh εγ ΛI : ℝ, 0 < εγ → 0 < ΛI → σh < σh + (1 / εγ) * ΛI",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 3 (technology-constrained case): the productivity effect of automation is positive",
+      "source_kind": "proposition",
+      "source_location": "Proposition 3, PDF page 15 (printed page 13), first bullet: W/γ(I*) > R > W/γ(N) and d ln Y|_{K,L} = B^(σ̂-1)/(1-σ̂) ((W/γ(I*))^(1-σ̂) - R^(1-σ̂)) dI + ... ; 'That is, both technologies increase productivity'",
+      "source_statement": "If I* = I < Ĩ — so that the allocation of tasks to factors is constrained by technology — then W/γ(I*) > R > W/γ(N), and d ln Y|_{K,L} = (B^(σ̂-1)/(1-σ̂)) ((W/γ(I*))^(1-σ̂) - R^(1-σ̂)) dI + (B^(σ̂-1)/(1-σ̂)) (R^(1-σ̂) - (W/γ(N))^(1-σ̂)) dN. That is, both technologies increase productivity. [Formalized: the automation coefficient ((W/γ(I*))^(1-σ̂) - R^(1-σ̂))/(1-σ̂) is positive when W/γ(I*) > R > 0 and σ̂ ≠ 1.]",
+      "lean_name": "paper_prop3_productivity_effect_positive",
+      "lean_type": "∀ Wg R σh : ℝ, 0 < R → R < Wg → σh ≠ 1 →\n  0 < (Wg ^ (1 - σh) - R ^ (1 - σh)) / (1 - σh)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 3 (technology-constrained case): a higher I always increases the rental rate",
+      "source_kind": "proposition",
+      "source_location": "Proposition 3, PDF page 15 (printed page 13): d ln R = d ln Y|_{K,L} - s_L (Λ_N dN/(σ̂+ε_L) - Λ_I dI/(σ̂+ε_L)); 'a higher I always increases the rental rate'",
+      "source_statement": "The impact of technology on factor prices in this case is given by: d ln W = d ln Y|_{K,L} + (1-s_L)(Λ_N dN/(σ̂+ε_L) - Λ_I dI/(σ̂+ε_L)), d ln R = d ln Y|_{K,L} - s_L (Λ_N dN/(σ̂+ε_L) - Λ_I dI/(σ̂+ε_L)). That is, a higher N always increases the equilibrium wage but may reduce the rental rate, while a higher I always increases the rental rate but may reduce the equilibrium wage. [Formalized for pure automation, dN = 0, with the productivity effect P ≥ 0.]",
+      "lean_name": "paper_prop3_rental_rate_rises",
+      "lean_type": "∀ P sL ΛI σh εL dI : ℝ, 0 ≤ P → 0 < sL → 0 < ΛI → 0 < σh → 0 < εL → 0 < dI →\n  0 < P + sL * ((1 / (σh + εL)) * ΛI * dI)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 3 (technology-constrained case): the wage rises with automation iff the productivity effect exceeds the displacement effect",
+      "source_kind": "proposition",
+      "source_location": "Proposition 3, PDF page 15 (printed page 13): d ln W = d ln Y|_{K,L} + (1-s_L)(Λ_N dN/(σ̂+ε_L) - Λ_I dI/(σ̂+ε_L)); the discussion on PDF pages 15-16 names the two terms the productivity effect and the displacement effect",
+      "source_statement": "d ln W = d ln Y|_{K,L} + (1-s_L)(Λ_N dN/(σ̂+ε_L) - Λ_I dI/(σ̂+ε_L)). [...] automation — an increase in I — always increases aggregate output, but has an ambiguous effect on the equilibrium wage. On the one hand, there is a positive productivity effect captured by the term d ln Y|_{K,L}. Countering this, there is a negative displacement effect captured by the term Λ_I/(σ̂+ε_L). [Formalized for pure automation, dN = 0: d ln W > 0 iff (1-s_L) Λ_I dI/(σ̂+ε_L) < d ln Y|_{K,L}.]",
+      "lean_name": "paper_prop3_wage_decomposition",
+      "lean_type": "∀ P sL ΛI σh εL dI : ℝ,\n  0 < P - (1 - sL) * ((1 / (σh + εL)) * ΛI * dI) ↔\n    (1 - sL) * ((1 / (σh + εL)) * ΛI * dI) < P",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Proposition 3 (cost-minimising case): new tasks always increase the equilibrium wage",
+      "source_kind": "proposition",
+      "source_location": "Proposition 3, PDF page 15 (printed page 13), second bullet: d ln W = d ln Y|_{K,L} + (1-s_L) Λ_N dN/(σ_free+ε_L) with d ln Y|_{K,L} = B^(σ̂-1)/(1-σ̂)(R^(1-σ̂) - (W/γ(N))^(1-σ̂)) dN > 0 under R > W/γ(N); 'an increase in N (more new tasks) always increases the equilibrium wage'",
+      "source_statement": "If I* = Ĩ < I — so that the allocation of tasks to factors is not constrained by technology — then W/γ(I*) = R > W/γ(N), and d ln Y|_{K,L} = (B^(σ̂-1)/(1-σ̂))(R^(1-σ̂) - (W/γ(N))^(1-σ̂)) dN. That is, new tasks increase productivity, but additional automation technologies do not. Moreover, d ln W = d ln Y|_{K,L} + (1-s_L)(1/(σ_free+ε_L)) Λ_N dN. That is, an increase in N (more new tasks) always increases the equilibrium wage. [Formalized with the positive productivity effect P and s_L < 1.]",
+      "lean_name": "paper_prop3_new_tasks_raise_wage",
+      "lean_type": "∀ P sL ΛN σf εL dN : ℝ, 0 < P → sL < 1 → 0 < ΛN → 0 < σf → 0 < εL → 0 < dN →\n  0 < P + (1 - sL) * ((1 / (σf + εL)) * ΛN * dN)",
+      "kind": "theorem"
+    },
+    {
+      "source_item": "Corollary 1: the Cobb-Douglas case and its factor shares",
+      "source_kind": "corollary",
+      "source_location": "Corollary 1, PDF page 13 (printed page 11): Y = (B/(1-η)) K^(1-N+I*) L^(N-I*); the text below Proposition 1 (PDF page 12): 'An increase in I* — which corresponds to greater equilibrium automation — increases the share of capital and reduces the share of labor'; competitive factor prices are marginal products (page 10)",
+      "source_statement": "Corollary 1. Suppose that σ = ζ = 1 and γ(i) = 1 for all i. Then aggregate output is Y = (B/(1-η)) K^(1-N+I*) L^(N-I*). [Formalized with c = B/(1-η): the marginal product of labor is (N-I*) Y/L, the marginal product of capital is (1-(N-I*)) Y/K, and the labor share W L/(R K + W L) equals N - I*, which falls with equilibrium automation I*.]",
+      "lean_name": "paper_corollary_1_cobb_douglas_shares",
+      "lean_type": "∀ c K L N Istar : ℝ, 0 < c → 0 < K → 0 < L → 0 < N - Istar → N - Istar < 1 →\n  HasDerivAt (fun L' : ℝ => c * K ^ (1 - (N - Istar)) * L' ^ (N - Istar))\n    ((N - Istar) * (c * K ^ (1 - (N - Istar)) * L ^ (N - Istar)) / L) L ∧\n  HasDerivAt (fun K' : ℝ => c * K' ^ (1 - (N - Istar)) * L ^ (N - Istar))\n    ((1 - (N - Istar)) * (c * K ^ (1 - (N - Istar)) * L ^ (N - Istar)) / K) K ∧\n  ((N - Istar) * (c * K ^ (1 - (N - Istar)) * L ^ (N - Istar)) / L * L) /\n    ((1 - (N - Istar)) * (c * K ^ (1 - (N - Istar)) * L ^ (N - Istar)) / K * K +\n      (N - Istar) * (c * K ^ (1 - (N - Istar)) * L ^ (N - Istar)) / L * L) = N - Istar",
+      "kind": "theorem"
+    }
+  ]
+}

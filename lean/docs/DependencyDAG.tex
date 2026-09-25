@@ -1,0 +1,127 @@
+\documentclass[tikz,border=10pt]{standalone}
+\input{../../../docs/tikz/dag_preamble.tex}
+
+\begin{document}
+\begin{tikzpicture}[
+  x=1cm,
+  y=1cm,
+  every node/.append style={outer sep=4pt}
+]
+
+\dagPaperMetadata
+  {The Race between Man and Machine}
+  {Acemoglu, Restrepo}
+  {NBER WP 22252, rev. June 2017; AER 108(6), 2018}
+  {2018}
+  {https://www.nber.org/papers/w22252}
+
+\dagPaperLegendRightOfMetadata{
+\node[dag_result, dag_template_legend] (legRes) at (0,0) {checked named\\result};
+\node[dag_lemma, dag_template_legend] (legLem) at (4.0,0) {checked displayed\\equation};
+\node[dag_model, dag_template_legend] (legDef) at (8.0,0) {checked source\\definition};
+\node[dag_partial, dag_template_legend] (legPart) at (12.0,0) {declared\\boundary};
+\node[dag_unformalized, dag_template_legend] (legUn) at (16.0,0) {out of scope\\(read-only)};
+}
+\daglegend{(legRes)(legLem)(legDef)(legPart)(legUn)}{Legend}
+
+\begin{dagPaperBody}
+
+\node[font=\sffamily\bfseries\Large, align=center, text width=22cm]
+  (Class) at (6.5,0.6) {
+  Status: partially formalized --- the sign and threshold content of the static model is proved\\
+  over the paper's displays; the equilibrium map (13) and the capital threshold $\bar K$ are declared boundaries
+};
+
+% row 1
+\node[dag_model, text width=6.0cm] (Model) at (-5.5,-2.2) {
+  \textbf{Model, Section 2.1} \\
+  tasks $i\in[N-1,N]$, automated up to $I$;\\
+  $\gamma$ strictly increasing (Assumption 1);\\
+  factor prices $W$, $R$
+};
+
+\node[dag_lemma, text width=5.4cm] (Cost) at (2.5,-2.2) {
+  \textbf{Equations (5)--(6), p.\,8} \\
+  $W/R=\gamma(\tilde I)$: capital cheaper below $\tilde I$,\\
+  labor above; $I^*=\min\{I,\tilde I\}$
+};
+
+\node[dag_partial, text width=5.4cm] (Eq) at (10.5,-2.2) {
+  \textbf{Equilibrium (Prop.\,1, eq.\,(12)--(13))} \\
+  existence, uniqueness, the map\\
+  $\omega(I^*,N,K)$: not modelled
+};
+
+\node[dag_lemma, text width=5.4cm] (CD) at (18.5,-2.2) {
+  \textbf{Corollary 1 (Cobb--Douglas)} \\
+  $Y=cK^{1-s}L^{s}$, $s=N-I^*$: marginal\\
+  products and labor share $=N-I^*$
+};
+
+% row 2
+\node[dag_result, text width=5.4cm] (Lam) at (-5.5,-7.4) {
+  \textbf{Proposition 2: $\Lambda_I,\Lambda_N>0$} \\
+  from $\int\gamma^{\hat\sigma-1}>0$ and $I^*>N-1$
+};
+
+\node[dag_result, text width=5.6cm] (P2) at (2.5,-7.4) {
+  \textbf{Proposition 2, signs} \\
+  constrained: $d\ln\omega/dI<0$, $/dN>0$, $/d\ln K>0$;\\
+  cost-minimising: $\sigma_{free}>\hat\sigma$
+};
+
+\node[dag_result, text width=5.4cm] (Prod) at (10.5,-7.4) {
+  \textbf{Proposition 3: productivity effect $>0$} \\
+  $((W/\gamma)^{1-\hat\sigma}-R^{1-\hat\sigma})/(1-\hat\sigma)>0$\\
+  when $W/\gamma(I^*)>R$, $\hat\sigma\ne1$
+};
+
+\node[dag_template_note, text width=5.6cm] (Ext) at (18.5,-7.4) {
+  \textbf{Extension:} $d\ln W/dI^*=\ln(K/L)-1/(N-I^*)$;\\
+  wage rises iff $K/L>e^{1/(N-I^*)}$ ---\\
+  the printed direction of $\bar K$ is reversed
+};
+
+% row 3
+\node[dag_result, text width=5.4cm] (R) at (-5.5,-12.6) {
+  \textbf{Proposition 3: $d\ln R>0$} \\
+  automation always raises the rental rate
+};
+
+\node[dag_result, text width=5.8cm] (W) at (2.5,-12.6) {
+  \textbf{Proposition 3: wage decomposition} \\
+  $d\ln W>0\iff(1-s_L)\Lambda_I/(\hat\sigma+\varepsilon_L)<d\ln Y|_{K,L}$
+};
+
+\node[dag_result, text width=5.4cm] (NT) at (10.5,-12.6) {
+  \textbf{Proposition 3: new tasks raise $W$} \\
+  $d\ln W=P+(1-s_L)\Lambda_N/(\sigma_{free}+\varepsilon_L)>0$
+};
+
+\node[dag_unformalized, text width=5.2cm] (Rest) at (18.5,-12.6) {
+  \textbf{Prop.\ 1; $\bar K$ of Prop.\ 3; Sections 3--5} \\
+  balanced growth, endogenous technology:\\
+  read-only, numerics only
+};
+
+\draw[dag_arrow] (Model) -- (Cost);
+\draw[dag_dashed_arrow] (Cost) -- (Eq);
+\draw[dag_dashed_arrow] (Eq) -- (CD);
+\draw[dag_arrow] (Model) -- (Lam);
+\draw[dag_arrow] (Lam) -- (P2);
+\draw[dag_dashed_arrow] (Eq) -- (P2);
+\draw[dag_arrow] (Cost) -- (Prod);
+\draw[dag_arrow] (CD) -- (Ext);
+\draw[dag_arrow] (Lam) -- (R);
+\draw[dag_arrow] (P2) -- (W);
+\draw[dag_arrow] (Prod.south west) -- (W.north east);
+\draw[dag_arrow] (P2.south east) -- (NT.north west);
+\draw[dag_dashed_arrow] (Eq.east) -- ++(0.9,0) |- (Rest.east);
+\draw[dag_dashed_arrow] (W) -- (Ext.south west);
+
+\node[font=\sffamily\bfseries\large, align=center] at (6.5,-16.0)
+  {Proof endpoints: \texttt{ProofInterface.lean}; extension: \texttt{MainTheorems.lean}};
+
+\end{dagPaperBody}
+\end{tikzpicture}
+\end{document}

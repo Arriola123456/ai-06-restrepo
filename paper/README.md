@@ -1,14 +1,17 @@
 # The paper
 
-Not committed — it is a third-party PDF and the repository should stay light.
+**Acemoglu, D., & Restrepo, P. (2018).** *The Race between Man and Machine:
+Implications of Technology for Growth, Factor Shares, and Employment.*
+American Economic Review 108(6), 1488–1542. https://doi.org/10.1257/aer.20160696
 
-**Aouad, A., Lykouris, T., & Zhong, H. (2026).** *Human-AI Productivity Paradoxes:
-Modeling the Interplay of Skill, Effort, and AI Assistance.*
+The PDFs are not committed. Version used in this repository:
 
-- https://arxiv.org/abs/2605.11350
-- Direct PDF: https://arxiv.org/pdf/2605.11350
+| Version | Where | Pages | Used for |
+|---|---|---|---|
+| **NBER Working Paper 22252, revised June 2017** (title *The Race Between Machine and Man*), SHA-256 `441d01202afd56ef8002fc24ffc2beb51191741c0b5accb11d2534620dd616b7` | https://www.nber.org/papers/w22252 | 87 | Everything here: the Lean run (`lean/`, pinned by SHA-256), the page numbers quoted in the README and the deck. Same file as the course PDF `papers/04-acemoglu-restrepo-2018-race-man-machine.pdf` |
+| AER 108(6), 2018 | https://doi.org/10.1257/aer.20160696 | 1488–1542 | The author's ChatGPT study session in `prompts.md` cites its pages (1493–1498); the AER reversed the title order and its pagination differs, the equation and proposition numbers of Section 2 coincide |
 
 ```bash
-curl -L -o paper/aouad-lykouris-zhong-2026-productivity-paradoxes.pdf \
-  https://arxiv.org/pdf/2605.11350
+curl -L -o w22252.pdf https://www.nber.org/system/files/working_papers/w22252/w22252.pdf
+sha256sum w22252.pdf   # 441d01202afd56ef8002fc24ffc2beb51191741c0b5accb11d2534620dd616b7
 ```
