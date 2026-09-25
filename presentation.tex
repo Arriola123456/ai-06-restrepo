@@ -193,8 +193,9 @@
 \begin{frame}{3 \textperiodcentered{} What I did analytically and computationally}
   \footnotesize
   \begin{itemize}
-    \item \textbf{By hand} (\texttt{hand/}, slide 13): the cost threshold and $I^*$; the Cobb-Douglas case ---
-      $W$, $R$, $s_L=N-I^*$ and the sign of $d\ln W/dI^*$.
+    \item \textbf{By hand} (\texttt{hand/}, slides 14 and B2): the static model from scratch --- the task CES, the
+      unit-cost minimisation behind $p(i)$ in (5), the threshold $W/R=\gamma(\tilde I)$ and $I^*=\min\{I,\tilde I\}$,
+      the two regimes, Assumption 3, and the task demand (7).
     \item \textbf{Numerics} (\texttt{analysis/task\_model.py}): the static equilibrium of Section 2 solved from
       eq.\ (13) with $\gamma(i)=0.3e^{3i}$, $\hat\sigma=0.6$, $\varepsilon_L=0.3$, $L^s(\omega)=\omega^{\varepsilon_L}$;
       the two regimes detected from $W/R\gtrless\gamma(I)$; prices from the ideal price index (10).
@@ -327,7 +328,8 @@ theorem cobb_douglas_wage_rises_iff (K L s : ℝ) (hK : 0 < K) (hL : 0 < L) (hs 
         \IfFileExists{hand/hand-derivation.pdf}{%
           \includegraphics[page=1,height=0.66\textheight]{hand/hand-derivation.pdf}}{%
           \fbox{\parbox{0.8\linewidth}{\centering\scriptsize hand derivation\\ \texttt{hand/}}}}}
-      \\[2pt]{\scriptsize Hand derivation: the threshold and the Cobb-Douglas wage. Full pages in the backup.}
+      \\[2pt]{\scriptsize Hand derivation, part 1 of 3: the task CES and the unit-cost minimisation behind $p(i)$.
+      Parts 2--3 (the threshold, the two regimes, the task demand) in B2.}
     \column{0.68\textwidth}\scriptsize
       \textbf{Claim 1 (the flat answer):} ``automation lowers wages and the labor share.'' Props.\ 2--3: the labor
       share always falls when technology binds; the wage rises iff productivity beats displacement, and does not
@@ -375,11 +377,11 @@ theorem cobb_douglas_wage_rises_iff (K L s : ℝ) (hK : 0 < K) (hL : 0 < L) (hs 
   \end{center}
 \end{frame}
 
-\begin{frame}{B2 \textperiodcentered{} Hand derivation}
+\begin{frame}{B2 \textperiodcentered{} Hand derivation (\texttt{hand/hand-derivation.pdf}): the static model, the threshold, the task demand}
   \begin{center}
-    \IfFileExists{hand/hand-derivation-part1.png}{\includegraphics[height=0.84\textheight]{hand/hand-derivation-part1.png}}{%
-      \IfFileExists{hand/hand-derivation.pdf}{\includegraphics[page=1,height=0.84\textheight]{hand/hand-derivation.pdf}}{%
-        \fbox{\parbox{0.6\linewidth}{\centering hand derivation (\texttt{hand/})}}}}
+    \includegraphics[height=0.84\textheight]{hand/hand-derivation-part1.png}\hspace{8pt}%
+    \includegraphics[height=0.84\textheight]{hand/hand-derivation-part2.png}\hspace{8pt}%
+    \includegraphics[height=0.84\textheight]{hand/hand-derivation-part3.png}
   \end{center}
 \end{frame}
 
