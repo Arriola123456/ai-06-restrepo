@@ -1,0 +1,10 @@
+model: N=1.0, gamma=0.3 exp(3.0 i), sigma_hat=0.6, epsL=0.3, I0=0.5
+capital thresholds at I0: constrained from K=1.6741; Assumption 3 up to K_lower=4.7292; wage sign change K_bar=5.728219081072014; all negative inside window: True
+K=2.814: W 1.4092->2.2115, sL 0.9911->0.3534, L 2.9678->0.8698; constrained all False, Assumption3 all False
+   decomposition at I0: productivity 0.8681 - displacement 2.5693 = -1.7012; numerical -1.7012; W/gamma(I*)=2.0776 R=0.9814 sL=0.5037
+K=11.456: W 1.4267->3.5982, sL 0.9960->0.1721, L 3.5787->0.6960; constrained all False, Assumption3 all False
+   decomposition at I0: productivity 3.1025 - displacement 1.5763 = 1.5262; numerical 1.5262; W/gamma(I*)=4.6545 R=0.2893 sL=0.6955
+new tasks at K_in: W 2.0966->5.2272, sL 0.3795->0.9473
+CD K=0.5: s=0.7: dlnW/dI*=-2.122 (K_lower 0.43, K_bar 4.17); s=0.6: dlnW/dI*=-2.360 (K_lower 0.67, K_bar 5.29); s=0.5: dlnW/dI*=-2.693 (K_lower 1.00, K_bar 7.39); s=0.4: dlnW/dI*=-3.193 (K_lower 1.50, K_bar 12.18)
+CD K=2.0: s=0.7: dlnW/dI*=-0.735 (K_lower 0.43, K_bar 4.17); s=0.6: dlnW/dI*=-0.974 (K_lower 0.67, K_bar 5.29); s=0.5: dlnW/dI*=-1.307 (K_lower 1.00, K_bar 7.39); s=0.4: dlnW/dI*=-1.807 (K_lower 1.50, K_bar 12.18)
+CD K=8.0: s=0.7: dlnW/dI*=0.651 (K_lower 0.43, K_bar 4.17); s=0.6: dlnW/dI*=0.413 (K_lower 0.67, K_bar 5.29); s=0.5: dlnW/dI*=0.079 (K_lower 1.00, K_bar 7.39); s=0.4: dlnW/dI*=-0.421 (K_lower 1.50, K_bar 12.18)
